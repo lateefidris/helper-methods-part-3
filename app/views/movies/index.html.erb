@@ -10,7 +10,7 @@
 
 <hr>
 
-<table>
+<table class="table table-hover" >
   <tr>
     <th>
       ID
@@ -18,6 +18,10 @@
 
     <th>
       Title
+    </th>
+
+    <th>
+      Image
     </th>
 
     <th>
@@ -37,29 +41,33 @@
   </tr>
 
   <% @movies.each do |movie| %>
-  <tr>
-    <td>
-      <%= movie.id %>
-    </td>
+    <tr>
+      <td>
+        <%= movie.id %>
+      </td>
 
-    <td>
-      <%= movie.title %>
-    </td>
+      <td>
+        <%= movie.title %>
+      </td>
 
-    <td>
-      <%= movie.description %>
-    </td>
+      <td>
+        <img src="<%= movie.image_url %> " alt="" width="250px">
+      </td>
 
-    <td>
-      <%= time_ago_in_words(movie.created_at) %> ago
-    </td>
-    <td>
-      <%= time_ago_in_words(movie.updated_at) %> ago
-    </td>
+      <td>
+        <%= movie.description %>
+      </td>
 
-    <td>
-      <%= link_to "Show details", movie %>
-    </td>
-  </tr>
+      <td>
+        <%= time_ago_in_words(movie.created_at) %> ago
+      </td>
+      <td>
+        <%= time_ago_in_words(movie.updated_at) %> ago
+      </td>
+
+      <td>
+        <%= link_to "Show details", movie %>
+      </td>
+    </tr>
   <% end %>
 </table>
